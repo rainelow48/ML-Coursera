@@ -1,6 +1,6 @@
 # ML Coursera
 
-## Machine Learning Course by Andrew Ng (Stanford)
+## Machine Learning Course by Andrew Ng (Stanford) on Coursera
 Link to course: https://www.coursera.org/learn/machine-learning
 
 Includes:
