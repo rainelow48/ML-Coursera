@@ -2,6 +2,7 @@
 
 ## Machine Learning Course by Andrew Ng (Stanford)
 Link to course: https://www.coursera.org/learn/machine-learning
+
 Includes:
 <ul>
     <li>Lecture Slides</li>
