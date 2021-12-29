@@ -1,0 +1,147 @@
+Basic math operations:
++	addition
+-	subtraction
+*	multiplication
+/	division
+
+Logic operations:
+==		equals to
+~=		not equals to (not !=)
+&&		and
+||		or
+xor(0,1)	exclusive or
+
+Logic loops:
+** Need to 'end;' to indicate the end of the loop
+for loop:
+>> for i = 1:10,
+>    v(i) = 2^i;
+>  end;
+
+[OR]
+>> indices = 1:10;
+>> for i = indices,
+>    v(i) = 2^i;
+>  end;
+
+while loop:
+>> i = 1
+>> while i<=5,
+>    v(i) = 100;
+>    i = i+1;
+>  end;
+
+if statement:
+if ...
+elseif ...
+else ...
+end;
+
+Assignment:
+=	assign value to variable
+pi	3.1415...
+
+Display:
+;		suppress printing of output
+disp(var)	displays value stored in var
+disp(sprintf('2 decimals: %0.2f', a)	displays a to 2 dp
+
+Formatting:
+format long	format variable to long int
+format short	format variable to short int
+
+Matrix:
+eye(a)			generate axa identity matrix
+A = [1 2; 3 4; 5 6]	set A to be a 3x2 matrix
+A'			transpose of A
+v = [1 2 3 4]		set v to be a 1x4 vector
+v = [1; 2; 3; 4]	set v to be a 4x1 vector
+v = 1:0.1:2		generate values according to (start, step, stop)
+ones(a,b)		populate axb matrix with '1's
+zeros(a,b)		populate axb matrix with '0's
+size(A)			gets the size of matrix A in a 1x2 matrix
+size(A,1)		gets first dimension of A
+size(A,2)		gets second dimension of A
+length(v)		gets length of vector v
+A = [A, [10;11;12]]	appends vector [10;11;12] behind matrix A
+A(:)			put all elements of A into a single column vector
+C = [A B]		join matrix A and B (by left-right)
+C = [A;B]		join matrix A and B (by up-down)
+
+Matrix operations:
+A*B			matrix multiplication of A and B
+A.*B			multiply corresponding element of A with element of B 
+			. indicates element wise multiplication
+eg. A = [1 2; 3 4], B = [10 11; 12 13]
+A.*B = [10 22; 36 52]
+1./A = [1 0.5; 0.33 0.25]
+max(v)			returns max value in vector v
+[val, ind] = max(v)	returns max value and corresponding index in vector v
+max(A)			returns column wise maximum of matrix A
+v<3			returns 1 or 0 (true/false) in corresponding positions
+find(v<3)		returns indices of v which values satisfies val<3
+[r, c] = find(A>=7)	returns row, col (r, c) vectors of elements that satisfies val>=7
+magic(m)		returns a mxm matrix which all the row, col and diagonal sums are equal
+sum(v)			sums up all elements in vector v
+prod(v)			multiply all elements in vector v
+floor(v)		rounds down all elements in vector v
+ceil(v)			rounds up all elements in vector v
+max(A, [], 1)	 	returns the maximum value (column wise) of A in a vector
+max(A, [], 2)		returns the maximum value (row wise) of A in a vector
+sum(A, 1)		sum elements in A by column
+sum(A, 2)		sum elements in A by row
+flipud(A)		flips matrix A up/down (i.e. mirror along x axis)
+pinv(A)			pseudo-inverse of matrix A
+inv(A)			inverse of matrix A
+
+Loading/Saving data:
+load filename.dat;	loads data from filename.dat
+load ('filename.dat');	loads data from filename.dat
+save filename.mat var;	saves data from var into file called filename.mat
+save hello.txt var -ascii;	saves data from var as text (ASCII)
+
+ML things:
+Function to automatically find for optimal theta
+'MaxIter', 100		indicates max iterations as 100
+initialTheta		initialises theta to 2x1 matrix of zeros
+optTheta		optimal theta
+functionVal		cost function
+exitFlag		shows convergence status (1 = converged)
+@costFunction		gives a pointer to the function costFunction (that calcs the cost)
+***
+options = optimset('GradObj', 'on', 'MaxIter', 100);
+initialTheta = zeros(2,1);
+[optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+***
+
+Others:
+who		displays all variables
+whos		displays all variables with details (size, bytes, class)
+
+Statistics:
+rand(axb)	populate axb matrix with uniformly generated random numbers ~U(0,1)
+randn(axb)	populate axb matrix with normally generated random numbers ~N(0,1)
+
+Plotting:
+plot(x,y, '')			plot x against y, stuff in '' represents colour
+hold on;			function to hold on the current plot to overlay new plots on it
+xlabel('')			label x axis
+ylabel('')			label y axis
+legend('','')			label graphs
+title('')			label graph title
+axis([xmin, xmax, ymin, ymax])	sets axis limits on plots
+print -dpng 'filename.png'	save plot as filename.png
+close				close the plot shown
+figure(1); plot(x,y1);		plot x,y1 on figure 1
+figure(2); plot(x,y2);		plot x,y2 on figure 2 (diff from figure 1)
+subplot(1,2,1);			divide the figure into 1x2 smaller figs, access the 1st element
+				then call 'plot(x,y1);'
+subplot(1,2,2);			divide the figure into 1x2 smaller figs, access the 2nd element
+				then call 'plot(x,y2);'
+hist(var)			plot and show histogram of var
+hist(var,bins)			plot and show histogram of var with specified bin count
+imagesc(A)			visualise matrix A on a colour map (by intensity)
+imagesc(A, colourbar, 		visualise matrix A on a grey colour map, show the colour bar
+colourmap grey) 
+
+
